@@ -123,52 +123,44 @@
         <div class="position-absolute start-100 bottom-0 translate-middle-x d-none d-xl-block ms-xl-n4"><img
             src="assets/img/dest/shape.svg" alt="destination" /></div>
         <div class="mb-7 text-center">
-          <h5 class="text-secondary">Top Selling </h5>
+          <!-- <h5 class="text-secondary">Top </h5> -->
           <h3 class="fs-xl-10 fs-lg-8 fs-7 fw-bold font-cursive text-capitalize">Top Destinations</h3>
         </div>
         <div class="row">
-          <div class="col-md-4 mb-4">
-            <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest1.jpg"
-                alt="Rome, Italty" />
-              <div class="card-body py-4 px-3">
-                <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                  <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link"
-                      href="#!">Rome, Italty</a></h4><span class="fs-1 fw-medium">$5,42k</span>
+          <!-- PHP CODE -->
+          <?php
+          include ("config.php");
+          if (isset($_GET['page_num_index'])) {
+            $page_num_index_by_addbar = $_GET['page_num_index'];
+          } else {
+            $page_num_index_by_addbar = 1;
+          }
+          $record_limit = 10;
+          $offset = ($page_num_index_by_addbar - 1) * $record_limit;
+          $sql_show_user = "SELECT * FROM achievement WHERE active_record = 'Yes' ORDER BY aid DESC LIMIT {$offset},{$record_limit}";
+          $result_sql_show_user = mysqli_query($conn, $sql_show_user) or die("Query Failed!!");
+          if (mysqli_num_rows($result_sql_show_user) > 0) {
+            $serial_num = $offset + 1;
+            while ($row = mysqli_fetch_assoc($result_sql_show_user)) {
+              ?>
+              <div class="col-md-4 mb-4">
+                <div class="card overflow-hidden shadow"> <img class="card-img-top"
+                    src="admin/upload/<?php echo ($row['aimg']) ?>" alt="Unlink" />
+                  <div class="card-body py-4 px-3">
+                    <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
+                      <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link"
+                          href="#!"><?php echo ($row['atitle']) ?></a></h4><span class="fs-1 fw-medium">Rs/-
+                        <?php echo ($row['atype']) ?></span>
+                    </div>
+                    <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg"
+                        style="margin-right: 14px" width="20" alt="navigation" /><span
+                        class="fs-0 fw-medium"><?php echo ($row['adate']) ?> Days
+                        Trip</span></div>
+                  </div>
                 </div>
-                <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg"
-                    style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium">10 Days
-                    Trip</span></div>
               </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest2.jpg"
-                alt="London, UK" />
-              <div class="card-body py-4 px-3">
-                <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                  <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link"
-                      href="#!">London, UK</a></h4><span class="fs-1 fw-medium">$4.2k</span>
-                </div>
-                <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg"
-                    style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium">12 Days
-                    Trip</span></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4 mb-4">
-            <div class="card overflow-hidden shadow"> <img class="card-img-top" src="assets/img/dest/dest3.jpg"
-                alt="Full Europe" />
-              <div class="card-body py-4 px-3">
-                <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                  <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link"
-                      href="#!">Full Europe</a></h4><span class="fs-1 fw-medium">$15k</span>
-                </div>
-                <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg"
-                    style="margin-right: 14px" width="20" alt="navigation" /><span class="fs-0 fw-medium">28 Days
-                    Trip</span></div>
-              </div>
-            </div>
-          </div>
+            <?php }
+          } ?>
         </div>
       </div><!-- end of .container-->
     </section>
@@ -205,10 +197,12 @@
                           class="rounded-circle fit-cover" src="assets/img/testimonial/author.png" height="65"
                           width="65" alt="" /></div>
                       <div class="card-body p-4">
-                        <p class="fw-medium mb-4">&quot;On the Windows talking painted pasture yet its express parties
-                          use. Sure last upon he same as knew next. Of believed or diverted no.&quot;</p>
-                        <h5 class="text-secondary">Mike taylor</h5>
-                        <p class="fw-medium fs--1 mb-0">Lahore, Pakistan</p>
+                        <p class="fw-medium mb-4">"Traveling has always been a dream, but it can be daunting without
+                          proper guidance. This blog made all the difference! From detailed itineraries to hidden gems,
+                          I felt like I had a personal tour guide. Thanks to the insightful tips and recommendations, my
+                          trip to Japan was seamless and unforgettable. Can't wait to plan my next adventure with your
+                          help!"</h5>
+                        <p class="fw-medium fs--1 mb-0">jabalpur, India</p>
                       </div>
                     </div>
                     <div class="card shadow-sm position-absolute top-0 z-index--1 mb-3 w-100 h-100"
@@ -220,10 +214,11 @@
                           class="rounded-circle fit-cover" src="assets/img/testimonial/author2.png" height="65"
                           width="65" alt="" /></div>
                       <div class="card-body p-4">
-                        <p class="fw-medium mb-4">&quot;Jadoo is recognized as one of the finest travel agency in the
-                          world. When it came to planning a trip, I found them to be dependable.&quot;</p>
-                        <h5 class="text-secondary">Thomas Wagon</h5>
-                        <p class="fw-medium fs--1 mb-0">CEO of Red Button</p>
+                        <p class="fw-medium mb-4">"I stumbled upon this travel blog while planning a spontaneous trip to
+                          Europe, and it was a game-changer. The articles are not only informative but also engaging,
+                          making travel planning enjoyable. I discovered unique destinations and practical advice that
+                          saved me time and money. Highly recommend this blog to any travel enthusiast!"</p>
+                        <p class="fw-medium fs--1 mb-0">Rome, Italty</p>
                       </div>
                     </div>
                     <div class="card shadow-sm position-absolute top-0 z-index--1 mb-3 w-100 h-100"
@@ -235,8 +230,10 @@
                           class="rounded-circle fit-cover" src="assets/img/testimonial/author3.png" height="65"
                           width="65" alt="" /></div>
                       <div class="card-body p-4">
-                        <p class="fw-medium mb-4">&quot;On the Windows talking painted pasture yet its express parties
-                          use. Sure last upon he same as knew next. Of believed or diverted no.&quot;</p>
+                        <p class="fw-medium mb-4">"As a solo traveler, finding trustworthy and useful travel advice is
+                          crucial. This blog provided exactly that and more. The personal stories, safety tips, and
+                          cultural insights were incredibly valuable. I felt more prepared and confident exploring new
+                          places. Thanks for creating such a fantastic resource for travelers of all kinds!"</p>
                         <h5 class="text-secondary">Kelly Willium</h5>
                         <p class="fw-medium fs--1 mb-0">Khulna, Bangladesh</p>
                       </div>
