@@ -2,7 +2,7 @@
 include ("config.php");
 session_start();
 if (isset($_SESSION['username'])) {
-    echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
+    // echo "<script>window.location.href='$hostname/admin/post-read.php'</script>";
     // header("Location:{$hostname}/admin/post.php");
 }
 ?>
