@@ -62,7 +62,7 @@ if (isset($_POST['submit'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="admin-heading">Modify Product Details</h1>
+                <h1 class="admin-heading">Modify Blog Details</h1>
             </div>
             <div class="col-md-2">
                 <a class="add-new" style="background:#E1412E; border-radius:16px;" href="post-read.php"><i
@@ -85,12 +85,12 @@ if (isset($_POST['submit'])) {
                                     placeholder="">
                             </div>
                             <div class="form-group">
-                                <label>Date</label>
-                                <input type="Date" name="adate" class="form-control" value="<?php echo $row['adate'] ?>"
-                                    placeholder="Date" required>
+                                <label>Days</label>
+                                <input type="number" name="adate" class="form-control" value="<?php echo $row['adate'] ?>"
+                                    placeholder="days" required>
                             </div>
                             <div class="form-group">
-                                <label>Title</label>
+                                <label>Name</label>
                                 <input type="text" name="atitle" class="form-control" value="<?php echo $row['atitle'] ?>"
                                     placeholder="Title" required>
                             </div>

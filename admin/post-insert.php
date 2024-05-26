@@ -66,11 +66,11 @@ if ($_SESSION['user_role'] == 0) {
                     enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Trip Days</label>
-                        <input type="number" name="adate" class="form-control" placeholder="Date" required>
+                        <input type="number" name="adate" class="form-control" placeholder="Days" required>
                     </div>
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="atitle" class="form-control" placeholder="Title" required>
+                        <input type="text" name="atitle" class="form-control" placeholder="Name" required>
                     </div>
                     <div class="form-group">
                         <label>Trip Price</label>
