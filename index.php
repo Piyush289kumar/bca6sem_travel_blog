@@ -143,19 +143,21 @@
             $serial_num = $offset + 1;
             while ($row = mysqli_fetch_assoc($result_sql_show_user)) {
               ?>
-              <div class="col-md-4 mb-4">
+             <div class="col-md-4 mb-4">
                 <div class="card overflow-hidden shadow"> <img class="card-img-top"
                     src="admin/upload/<?php echo ($row['aimg']) ?>" alt="Unlink" />
                   <div class="card-body py-4 px-3">
                     <div class="d-flex flex-column flex-lg-row justify-content-between mb-3">
-                      <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link"
-                          href="#!"><?php echo ($row['atitle']) ?></a></h4><span class="fs-1 fw-medium">Rs/-
+                      <h4 class="text-secondary fw-medium"><a class="link-900 text-decoration-none stretched-link" href="https://api.whatsapp.com/send?phone=919981416913&text=Hello!%20Can I get more Information about! Destination Name: <?php echo ($row['atitle']) ?>. <?php echo ($row['adate']) ?> Days
+                          Trip. Rs/- <?php echo ($row['atype']) ?>"><?php echo ($row['atitle']) ?></a></h4><span
+                        class="fs-1 fw-medium">Rs/-
                         <?php echo ($row['atype']) ?></span>
                     </div>
-                    <div class="d-flex align-items-center"> <img src="assets/img/dest/navigation.svg"
-                        style="margin-right: 14px" width="20" alt="navigation" /><span
-                        class="fs-0 fw-medium"><?php echo ($row['adate']) ?> Days
-                        Trip</span></div>
+                    <div class="d-flex align-items-center">
+                      <img src="assets/img/dest/navigation.svg" style="margin-right: 14px" width="20" alt="navigation" />
+                      <span class="fs-0 fw-medium"><?php echo ($row['adate']) ?> Days
+                        Trip</span>
+                    </div>
                   </div>
                 </div>
               </div>
