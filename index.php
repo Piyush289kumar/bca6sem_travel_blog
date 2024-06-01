@@ -143,7 +143,7 @@
             $serial_num = $offset + 1;
             while ($row = mysqli_fetch_assoc($result_sql_show_user)) {
               ?>
-             <div class="col-md-4 mb-4">
+              <div class="col-md-4 mb-4">
                 <div class="card overflow-hidden shadow"> <img class="card-img-top"
                     src="admin/upload/<?php echo ($row['aimg']) ?>" alt="Unlink" />
                   <div class="card-body py-4 px-3">
@@ -262,8 +262,19 @@
     </section>
     <!-- <section> close ============================-->
     <!-- ============================================-->
+    <section id="testimonial">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 px-4">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLScf16dlb-jHqgTHORA_RQeSQwNA29UaIWDmGuVqetIQe6cwVQ/viewform?embedded=true"
+              width="100%" height="983" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+          </div>
+        </div>
+      </div><!-- end of .container-->
+    </section>
     <div class="py-5 text-center">
-      <p class="mb-0 text-secondary fs--1 fw-medium">All rights  Muskan vanshkar </p>
+      <p class="mb-0 text-secondary fs--1 fw-medium">All rights Muskan vanshkar </p>
     </div>
   </main>
   <!-- ===============================================-->
